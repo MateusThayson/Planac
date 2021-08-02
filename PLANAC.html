@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planac</title>
+    <style>
+        body{
+            background-color: #00a4f7;
+        }
+    </style>
+</head>
+<style>
+    *{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+}
+.menu{
+    background-color: #000000;
+
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu .imagem img{
+    width: 90px;
+    margin-left: 20px;
+    height: 30px;
+}
+.menu .botoes{
+    display: flex;
+    margin-right: 10px;
+    height: 100%;
+    align-items: center;
+}
+.menu .botoes .planner, .menu .botoes .plano_semestral, .menu .botoes .dropdown .perfil{
+    margin-right: 15px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.menu .botoes .dropdown{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.menu .botoes .dropdown .conteudo-drop{
+    display: none;
+}
+.menu .botoes .dropdown:hover .conteudo-drop{
+    display: block;
+    background-color: #000000;
+    right: 0;
+    width: 300px;
+    top: 70px;
+    height: 350px;
+    text-align: center;
+    overflow: scroll;
+    position: absolute;
+}
+.menu .botoes .dropdown .conteudo-drop .produto{
+    background-color: #ffffff;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto 10px auto;
+    padding: 15px;
+}
+.cards{ 
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.cards .card1{
+    margin: 20px;
+    background-color: #ffffff;
+    padding: 30px;
+    width: 30%;
+    height: 400px;
+    border-radius: 20px;
+}
+.cards .card2{
+    margin: 20px;
+    background-color: #ffffff;
+    padding: 30px;
+    width: 30%;
+    height: 400px;
+    border-radius: 20px;
+}
+.topico1 .h1{
+    justify-content: center;
+
+}
+.card2 .topico1{
+    margin: 5px;
+    background-color: #00f190;
+    padding: 25px;
+    width: 85%;
+    border-radius: 15px;
+}
+.card2 .topico2{
+    margin: 5px;
+    background-color: #fff27a;
+    padding: 25px;
+    width: 85%;
+    border-radius: 15px;
+}
+.card2 .topico3{
+    margin: 5px;
+    background-color: #ffdfc5;
+    padding: 25px;
+    width: 85%;
+    border-radius: 15px;
+}
+.card2 .topico4{
+    margin: 5px;
+    background-color: #f7874c;
+    padding: 25px;
+    width: 85%;
+    border-radius: 15px;
+}
+.card2 .topico5{
+    margin: 5px;
+    background-color: #f2606e;
+    padding: 25px;
+    width: 85%;
+    border-radius: 15px;
+}
+</style>
+
+<body>
+      <nav class="menu">
+        <div class="imagem">
+            <img src="Tipografia Branca.png" alt="">
+        </div>
+        
+        <div class="botoes"> 
+            <a href=""><button class="planner">Meu planner</button></a> 
+            <a href=""><button class="plano_semestral">Plano semestral</button></a>
+            <div class="dropdown">
+                <button class="perfil">Meu Perfil</button>
+                
+                <div class="conteudo-drop">
+
+                </div>
+                <div class="sair">
+                    <button class="finalizar-button"><b>Sair</b></button>
+                </div>  
+            </div>
+        </div>
+    </nav>
+    <div class="cards">
+        <div class="card1">
+
+        </div>
+        <div class="card2">
+            <center><h4>Atividades planejadas em Abril</h4></center>
+            <div class="topico1"><P>Aula de violão</P></div>
+            <div class="topico2"><P>Aula de violão</P></div>
+            <div class="topico3"><P>Aula de violão</P></div>
+            <div class="topico4"><P>Aula de violão</P></div>
+            <div class="topico5"><P>Aula de violão</P></div>
+            
+        </div>
+
+    </div>
+    
+</body>
+</html>
