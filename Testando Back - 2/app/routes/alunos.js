@@ -6,5 +6,6 @@ module.exports = function(app){
     app.post("/planac/alunos/signin", controllerAuth.logar);
 
     // app.use("/alunos", controllerAuth.checar);
+    app.get("/planac/alunos/:id", controller.buscarAlunoPorMatricula);
 
 }
