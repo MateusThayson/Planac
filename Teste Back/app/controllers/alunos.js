@@ -25,5 +25,16 @@ module.exports.cadastrarAluno = function(req, res){
     })
 }
 
+// * Buscar Aluno Por Matricula 
+
+module.exports.buscarAlunoPorMatricula = function(req,res){
+    let matricula = req.params.matricula;
+    let promise = Aluno.findById(matricula).exec();
+    promise.then(function(aluno){
+      res.status(200).json(view.render(aluno));
+    }).catch(function(error){
+      res.status(400).json({mensagem: "Aluno não encontrado!", error: error})
+    });
+  }
 
 
