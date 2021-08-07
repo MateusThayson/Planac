@@ -51,9 +51,25 @@ module.exports.listarAtividadesDoAluno = function(req, res){
     promise.then(function(atividades){
        res.status(200).json(viewAtividade.renderMany(atividades));
     }).catch(function(error){
-       res.status(400).json({mensagem:"Sua requisição não funcionou!"})
+       res.status(400).json({mensagem:"Você só pode visualizar as suas atividades!"})
     })
 }
+
+module.exports.buscarAtividadePorId = function(req, res){
+    let id = req.params.id;
+    let token = req.headers.token;
+    let payload = jwt.decode(token);
+    let aluno_logado = payload.id;
+    
+    let promise = Atividade.findById(id).exec();        
+        promise.then(function(atividade){
+            if(aluno_logado == atividade.aluno){
+                res.status(200).json(viewAtividade.render(atividade));
+            }else{
+                res.status(400).json({mensagem: "Você só pode visualizar as suas atividades!"});
+                }
+        })
+    }
 
 module.exports.excluirAtividade = function(req, res){
     let id = req.params.id;
@@ -68,18 +84,10 @@ module.exports.excluirAtividade = function(req, res){
                 atividade.remove(id);
                 res.status(200).json({mensagem:"Atividade excluida!"});
             }else{
-                res.status(400).json({mensagem: "Erro!"});
+                res.status(400).json({mensagem: "Você só pode excluir as suas atividades!"});
             }
         })
     }
 
-    module.exports.buscarAtividadePorId = function(req,res){
-        let id = req.params.id;
-        let promise = Atividade.findById(id).exec();
-        promise.then(function(atividade){
-          res.status(200).json(viewAtividade.render(atividade));
-        }).catch(function(error){
-          res.status(400).json({mensagem: "Aluno não encontrado!", error: error})
-        });
-      }
+
       
