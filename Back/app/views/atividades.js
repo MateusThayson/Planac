@@ -1,12 +1,12 @@
 function render(atividade){
     return {
+        id: atividade._id,
         categoria: atividade.categoria,
         nome: atividade.nome,
         data: atividade.data,
         horario: atividade.horario,
         comcadastro: atividade.comcadastro,
         comcomprovante: atividade.comcomprovante,
-
     }
 }
 

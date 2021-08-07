@@ -1,5 +1,6 @@
 function render(aluno){
     return {
+        id: aluno._id,
         matricula: aluno.matricula,
         nome: aluno.nome,
     }

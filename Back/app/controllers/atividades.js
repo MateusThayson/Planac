@@ -1,11 +1,10 @@
 const Atividade = require("../models/atividade");
 const viewAtividade = require("../views/atividades");
 const jwt = require("jsonwebtoken");
-const atividade = require("../models/atividade");
 
 // Métodos da classe Atividade:
 // * Planejar atividade
-// * Listar atividades
+// * Listar atividades do Aluno
 // * Listar atividades por id
 // * Excluir atividade
 
@@ -41,35 +40,20 @@ module.exports.planejarAtividade = function(req, res){
     promise.then(function(atividade){
         res.status(201).json(viewAtividade.render(atividade));
     }).catch(function(error){
-        res.status(500).json({mensagem: "Não foi possível planejar sua atividade!"});
+        res.status(500).json({mensagem: "Não foi possível planejar atividade!"});
     });
 }
 
-// * Listar atividades do Aluno
+module.exports.listarAtividadesDoAluno = function(req, res){
+    let id = req.params.id    
+    let promise = Atividade.find({aluno:id}).exec();
 
-module.exports.listarAtividadeDoAluno = function(req, res){
-    let promise = Atividade.find().exec();
     promise.then(function(atividades){
-       res.status(200).json(viewAtividades.renderMany(atividades));
+       res.status(200).json(viewAtividade.renderMany(atividades));
     }).catch(function(error){
-       res.status(500).json({mensagem:"Atividade não encontrada!"})
-       console.log(error)
+       res.status(400).json({mensagem:"Sua requisição não funcionou!"})
     })
 }
-
-// * Listar atividades por id
-
-module.exports.listarAtividadePorId= function(req, res){
-    let id = req.params.id;
-    let promise = Atividade.findById(id).exec();
-    promise.the(function(atividade){
-        res.status(200).json(view.render(atividade));
-    }).catch(function(error){
-        res.status(400).json({mensagem: "Não encontramos essa atividade!"})
-    });
-}    
-
-// * Excluir atividade
 
 module.exports.excluirAtividade = function(req, res){
     let id = req.params.id;
@@ -79,12 +63,23 @@ module.exports.excluirAtividade = function(req, res){
 
     let promise = Atividade.findById(id).exec();
     
-        promise.then(function(post){
-            if(aluno_logado == atividade.usuario){
-                post.remove(id);
+        promise.then(function(atividade){
+            if(aluno_logado == atividade.aluno){
+                atividade.remove(id);
                 res.status(200).json({mensagem:"Atividade excluida!"});
             }else{
                 res.status(400).json({mensagem: "Erro!"});
             }
         })
     }
+
+    module.exports.buscarAtividadePorId = function(req,res){
+        let id = req.params.id;
+        let promise = Atividade.findById(id).exec();
+        promise.then(function(atividade){
+          res.status(200).json(viewAtividade.render(atividade));
+        }).catch(function(error){
+          res.status(400).json({mensagem: "Aluno não encontrado!", error: error})
+        });
+      }
+      
