@@ -1,4 +1,6 @@
-export default function(){
+import "./Menu.css";
+
+export default function Menu(){
     return(
         <div class="menu">
             <div class="imagem">
@@ -13,7 +15,7 @@ export default function(){
                     <div class="conteudo-drop"></div>
                 </div>
                 <div class="sair">
-                    <button class="finalizar-button"><b>Sair</b></button>
+                    <button class="finalizar-button">Sair</button>
                 </div>  
             </div>
         

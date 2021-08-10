@@ -1,0 +1,42 @@
+.boxContainer{
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    text-align: center;
+    border-radius: 2rem;
+    margin: 3rem;
+    height: 30%;
+    width: 40%;
+    display: grid;
+    grid-template-rows: 20% 50% 30%;
+
+}
+
+.boxContainer .tituloBox{
+    margin: 10px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.graph{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    display: flex;
+    height:15vh;
+    width: 15vh;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: auto;
+    border-radius: 50%;
+    background-image: linear-gradient(to right,yellow 0%, var(--planac-verde) 20%, var(--planac-azul) 100%);
+}
+
+.boxContainer .horas{
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.boxAtividadeRealizada{
+    background-color: grey;
+}
