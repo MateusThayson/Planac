@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 module.exports = function(){
     let AtividadeSchema = mongoose.Schema({
         categoria: {
-            type: "String",
+            type: mongoose.Schema.ObjectId,
+            ref: "Categoria",
             required: true,
         },
         nome: {
@@ -11,24 +12,27 @@ module.exports = function(){
             required: true,
         },
         data: {
-            type: "String",
+            type: Date,
             required: true,
         },
         horario: {
             type: "String",
             required: true,
         },
-        comcadastro: {
+        com_cadastro: {
             type: Boolean,
-            required: true,
+            required: false,
+            default: false,
         },
-        comcomprovante: {
+        com_comprovante: {
             type: Boolean,
-            required: true,
+            required: false,
+            default: false,
         },
         aluno: {
             type: mongoose.Schema.ObjectId,
             ref: "Aluno",
+            required: true,
         }
     })
     return mongoose.model("Atividade", AtividadeSchema);
