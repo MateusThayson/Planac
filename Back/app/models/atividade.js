@@ -19,12 +19,12 @@ module.exports = function(){
             type: "String",
             required: true,
         },
-        com_cadastro: {
+        cadastrada_no_sisac: {
             type: Boolean,
             required: false,
             default: false,
         },
-        com_comprovante: {
+        comprovante: {
             type: Boolean,
             required: false,
             default: false,

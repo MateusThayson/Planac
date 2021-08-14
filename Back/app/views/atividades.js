@@ -5,7 +5,8 @@ function render(atividade){
         nome_da_atividade: atividade.nome,
         data: atividade.data,
         horario: atividade.horario,
-        // aluno: atividade.aluno,
+        comprovante: atividade.comprovante,
+        aluno: atividade.aluno,
     }
 }
 

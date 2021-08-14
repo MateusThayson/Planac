@@ -1,22 +1,6 @@
 const Atividade = require("../models/atividade");
-const Categoria = require("../models/categoria");
 const viewAtividade = require("../views/atividades");
-const viewCategoria = require("../views/categorias");
 const jwt = require("jsonwebtoken");
-
-// Métodos da classe Atividade:
-// * Planejar atividade
-// * Listar atividades do Aluno
-// * Buscar atividades por id
-// * Excluir atividade
-// * Listar atividades cadastradas
-// * Listar atividades cadastradas por categoria
-// * Listar atividades com comprovante
-// * Listar atividades sem comprovante
-// * Buscar atividades por nome
-// * Editar atividade
-// * Adicionar comprovante
-// *Excluir atividade
 
 module.exports.planejarAtividade = function(req, res){
     
@@ -24,10 +8,6 @@ module.exports.planejarAtividade = function(req, res){
     let nome = req.body.nome;
     let data = req.body.data;
     let horario = req.body.horario;
-// -------------------------------------------------------------------------------------------------------------
-
-// Ao planejar uma atividade, o sistema detecta o aluno logado através do token e atribui seu id a atividade. 
-// Cada atividade no banco está atribuida a um aluno.
 
     let token = req.headers.token;
     let payload = jwt.decode(token);
@@ -44,49 +24,39 @@ module.exports.planejarAtividade = function(req, res){
         res.status(201).json(viewAtividade.render(atividade));
     }).catch(function(error){
         res.status(500).json({mensagem: "Erro ao planejar atividade!"});
+        console.log(error);
     });
 }
 
-// module.exports.listarAtividadesDoAluno = function(req, res){
-//     let token = req.headers.token;
-//     let payload = jwt.decode(token);
-//     let aluno_logado = payload.id;    
-//     let promise = Atividade.find({aluno:aluno_logado}).populate('categoria');
-
-//     promise.then(function(atividades){
-//         res.status(200).json(viewAtividade.renderMany(atividades));
-//     }).catch(function(error){
-//         res.status(400).json({mensagem: "Erro ao listar atividades!"});
-//     });
-// }
-
-// module.exports.buscarAtividadePorId = function(req, res){
-//     let id = req.params.id;
-//     let token = req.headers.token;
-//     let payload = jwt.decode(token);
-//     let aluno_logado = payload.id;
+module.exports.buscarAtividadePorId = function(req, res){
+    let id = req.params.id;
+    let token = req.headers.token;
+    let payload = jwt.decode(token);
+    let aluno_logado = payload.id;
     
-//     let promise = Atividade.findById(id).populate('categoria');        
-//     promise.then(function(atividade){
-//         if(aluno_logado == atividade.aluno){
-//             res.status(200).json(viewAtividade.render(atividade));
-//         }else{
-//             res.status(400).json({mensagem: "Erro ao buscar atividade!"});
-//         }
-//     })
-// }
+    let promise = Atividade.findById(id).populate({path: 'categoria', select:['nome']}).populate({path: 'aluno', select:['nome']});
+    promise.then(function(atividade){
+        if(aluno_logado == atividade.aluno, atividade.cadastrada_no_sisac == false){
+            res.status(200).json(viewAtividade.render(atividade));
+        }else{
+            res.status(400).json({mensagem: "Erro ao buscar atividade!"});
+        }      
+    }).catch(function(error){
+        res.status(400).json({mensagem: "Atividade não encontrada!"});
+    });        
+}
 
 module.exports.listarAtividadesCadastradas = function(req, res){
     let token = req.headers.token;
     let payload = jwt.decode(token);
     let aluno_logado = payload.id;    
-    let promise = Atividade.find({aluno: aluno_logado, com_cadastro: true});
+    let promise = Atividade.find({aluno: aluno_logado, cadastrada_no_sisac: true}).populate({path: 'categoria', select:['nome']}).populate({path: 'aluno', select:['nome']});
 
     promise.then(function(atividades){
         res.status(200).json(viewAtividade.renderMany(atividades));
-        }).catch(function(error){
-            res.status(400).json({mensagem: "Erro ao listar atividades cadastradas!"});
-        });
+    }).catch(function(error){
+        res.status(400).json({mensagem: "Erro ao listar atividades cadastradas!"});
+    });
 }
 
 module.exports.listarAtividadesCadastradasPorCategoria = function(req, res){
@@ -94,61 +64,65 @@ module.exports.listarAtividadesCadastradasPorCategoria = function(req, res){
     let token = req.headers.token;
     let payload = jwt.decode(token);
     let aluno_logado = payload.id;    
-    let promise = Atividade.find({aluno: aluno_logado, com_cadastro: true, categoria: id});
+    let promise = Atividade.find({aluno: aluno_logado, cadastrada_no_sisac: true, categoria: id}).populate({path: 'categoria', select:['nome']}).populate({path: 'aluno', select:['nome']});
 
     promise.then(function(atividades){
         res.status(200).json(viewAtividade.renderMany(atividades));
-        }).catch(function(error){
-            res.status(400).json({mensagem: "Erro ao listar atividades cadastradas por categoria!"});
-        });
+    }).catch(function(error){
+        res.status(400).json({mensagem: "Erro ao listar atividades cadastradas por categoria!"});
+    });
 }
 
 module.exports.listarAtividadesComComprovante = function(req, res){
     let token = req.headers.token;
     let payload = jwt.decode(token);
     let aluno_logado = payload.id;    
-    let promise = Atividade.find({aluno:aluno_logado, com_comprovante: true});
+    let promise = Atividade.find({aluno:aluno_logado, comprovante: true, cadastrada_no_sisac: false}).populate({path: 'categoria', select:['nome']}).populate({path: 'aluno', select:['nome']});
 
     promise.then(function(atividades){
         res.status(200).json(viewAtividade.renderMany(atividades));
-        }).catch(function(error){
-            res.status(400).json({mensagem: "Erro ao listar atividades com comprovante!"});
-        });
+    }).catch(function(error){
+        res.status(400).json({mensagem: "Erro ao listar atividades com comprovante!"});
+    });
 }
 
 module.exports.listarAtividadesSemComprovante = function(req, res){
     let token = req.headers.token;
     let payload = jwt.decode(token);
     let aluno_logado = payload.id;    
-    let promise = Atividade.find({aluno:aluno_logado, com_comprovante: false});
+    let promise = Atividade.find({aluno:aluno_logado, comprovante: false, cadastrada_no_sisac: false}).populate({path: 'categoria', select:['nome']}).populate({path: 'aluno', select:['nome']});
 
     promise.then(function(atividades){
         res.status(200).json(viewAtividade.renderMany(atividades));
-        }).catch(function(error){
-            res.status(400).json({mensagem: "Erro ao listar atividades sem comprovante!"});
-        });
+    }).catch(function(error){
+        res.status(400).json({mensagem: "Erro ao listar atividades sem comprovante!"});
+        console.log(error);
+    });
 }
 
 module.exports.buscarAtividadePorNome = function(req, res){
     let nome = req.body.nome;
-
     let token = req.headers.token;
     let payload = jwt.decode(token);
     let aluno_logado = payload.id;
 
-    let promise = Atividade.findOne({nome: nome}).populate('categoria');
+    let promise = Atividade.findOne({aluno:aluno_logado, nome: nome, cadastrada_no_sisac: false}).populate({path: 'categoria', select:['nome']}).populate({path: 'aluno', select:['nome']});
     promise.then(function(atividade){
-        res.status(200).json(viewAtividade.render(atividade));
+        res.status(200).json(viewAtividade.render(atividade));        
     }).catch(function(error){
-        res.status(400).json({mensagem: "Erro ao buscar atividade!"});
+        res.status(400).json({mensagem: "Atividade não encontrada!"});
     }); 
 }
 
 module.exports.editarAtividade = function(req, res){
     let id = req.params.id;
-    let promise = Atividade.findByIdAndUpdate(id, req.body, {new: false}).exec();
+    let token = req.headers.token;
+    let payload = jwt.decode(token);
+    let aluno_logado = payload.id;
+
+    let promise = Atividade.findByIdAndUpdate(id, req.body, {new: false});
     promise.then(function(atividade){
-        res.status(200).json({mensagem: "Atividade atualizada com sucesso!"});
+        res.status(200).json({mensagem: "Atividade editada com sucesso!"});               
     }).catch(function(error){
         res.status(400).json({mensagem: "Erro ao editar atividade!"});
     });
@@ -156,7 +130,11 @@ module.exports.editarAtividade = function(req, res){
 
 module.exports.adicionarComprovante = function(req, res){
     let id = req.params.id;
-    let promise = Atividade.findByIdAndUpdate(id, {"com_comprovante": true}, {new: false}).exec();
+    let token = req.headers.token;
+    let payload = jwt.decode(token);
+    let aluno_logado = payload.id;
+
+    let promise = Atividade.findByIdAndUpdate(id, {"comprovante": true}, {new: false});
     promise.then(function(atividade){
         res.status(200).json({mensagem: "Comprovante adicionado!"});
     }).catch(function(error){
@@ -170,16 +148,17 @@ module.exports.excluirAtividade = function(req, res){
     let payload = jwt.decode(token);
     let aluno_logado = payload.id;
 
-    let promise = Atividade.findById(id).exec();
-    
+    let promise = Atividade.findById(id);
     promise.then(function(atividade){
-        if(aluno_logado == atividade.aluno){
+        if(aluno_logado == atividade.aluno, atividade.cadastrada_no_sisac == false){
             atividade.remove(id);
             res.status(200).json({mensagem:"Atividade excluida!"});
         }else{
             res.status(400).json({mensagem: "Erro ao excluir atividade!"});
-        }
-    })
+        }      
+    }).catch(function(error){
+        res.status(400).json({mensagem: "Erro ao excluir atividade!"});
+    });
 }
 
 
