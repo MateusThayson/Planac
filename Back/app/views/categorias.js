@@ -2,6 +2,8 @@ function render(categoria){
     return {
         id_categoria: categoria._id,
         nome: categoria.nome,
+        numero: categoria.numero,
+        comprovantePadrao: categoria.comprovantePadrao,
     }
 }
 

@@ -5,7 +5,19 @@ module.exports = function(){
         nome: {
             type: "String",
             required: true,
+        },
+        numero: {
+            type: Number,
+            required: true,
+        },
+        limiteDaCategoria: {
+            type: Number,
+            required: true,
+        },
+        comprovantePadrao: {
+            type: "String",
+            required: true,
         }
-    })
+ })
     return mongoose.model("Categoria", CategoriaSchema);
 }();

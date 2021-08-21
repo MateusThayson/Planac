@@ -3,8 +3,9 @@ const viewCategoria = require("../views/categorias");
 
 module.exports.inserirCategoria = function(req, res){
     let nome = req.body.nome;
+    let comprovantePadrao = req.body.comprovantePadrao;
 
-    let promise = Categoria.create({nome: nome});
+    let promise = Categoria.create({nome: nome, comprovantePadrao: comprovantePadrao});
 
     promise.then(function(categoria){
         res.status(201).json(viewCategoria.render(categoria));

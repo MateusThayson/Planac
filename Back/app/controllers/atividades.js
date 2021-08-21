@@ -90,7 +90,7 @@ module.exports.listarAtividadesSemComprovante = function(req, res){
     let token = req.headers.token;
     let payload = jwt.decode(token);
     let aluno_logado = payload.id;    
-    let promise = Atividade.find({aluno:aluno_logado, comprovante: false, cadastrada_no_sisac: false}).populate({path: 'categoria', select:['nome']}).populate({path: 'aluno', select:['nome']});
+    let promise = Atividade.find({aluno:aluno_logado, comprovante: false, cadastrada_no_sisac: false}).populate({path: 'categoria', select:['nome', 'comprovantePadrao']}).populate({path: 'aluno', select:['nome']});
 
     promise.then(function(atividades){
         res.status(200).json(viewAtividade.renderMany(atividades));
@@ -99,6 +99,21 @@ module.exports.listarAtividadesSemComprovante = function(req, res){
         console.log(error);
     });
 }
+
+module.exports.listarAtividadesPlanejadas = function(req, res){
+    let token = req.headers.token;
+    let payload = jwt.decode(token);
+    let aluno_logado = payload.id;    
+    let promise = Atividade.find({aluno:aluno_logado, cadastrada_no_sisac: false}).populate({path: 'categoria', select:['nome', 'comprovantePadrao']}).populate({path: 'aluno', select:['nome']});
+
+    promise.then(function(atividades){
+        res.status(200).json(viewAtividade.renderMany(atividades));
+    }).catch(function(error){
+        res.status(400).json({mensagem: "Erro ao listar atividades planejadas!"});
+        console.log(error);
+    });
+}
+
 
 module.exports.buscarAtividadePorNome = function(req, res){
     let nome = req.body.nome;
