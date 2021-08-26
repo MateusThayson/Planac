@@ -1,71 +1,47 @@
-button{
-    cursor: pointer;
-}
-a{
-    text-decoration: none;
-}
 .menu{
-    background-color: #000000;
-
+    background-color: #131111;
     display: flex;
     height: 70px;
     justify-content: space-between;
     align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
 }
+
+.menu .tb{
+    display: flex;
+    right: auto;
+}
+
 .menu .imagem img{
     width: 90px;
     margin-left: 20px;
     height: 30px;
 }
-.menu .botoes{
+.menu .tb .botao{
     display: flex;
+    color: white;
     margin-right: 10px;
     height: 100%;
     align-items: center;
-}
-.menu .botoes .planner, .menu .botoes .plano_semestral, .menu .botoes .dropdown .perfil{
-    margin-right: 15px;
-    padding: 10px;
-    border: none;
-    background-color: rgb(0, 0, 0);
-    color: #ffffff;
-    border-radius: 5px;
-    font-size: 16px;
-}
-.menu .botoes .dropdown{
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-.menu .botoes .dropdown .conteudo-drop{
-    display: none;
-}
-.menu .botoes .dropdown:hover .conteudo-drop{
-    display: block;
-    background-color: #000000;
-    right: 0;
-    width: 300px;
-    top: 70px;
-    height: 350px;
-    text-align: center;
-    overflow: scroll;
-    position: absolute;
-}
-.menu .botoes .dropdown .conteudo-drop .produto{
-    background-color: #ffffff;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px auto 10px auto;
-    padding: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px;
 }
 
-button{
-    background-color: transparent;
-    color: white;
-    font-family: GilroyRegular;
-    text-decoration: none;
-    border: none;
-    font-size: 1rem;
+.menu .tb .botao:hover, .botao:active{
+    background-color: rgb(116, 209, 255);
+    text-decoration: underline;
+}
+
+.menu .sair{
+    color:white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.menu .sair:hover{
+    text-decoration: underline;
 }

@@ -45,3 +45,8 @@
     border: none;
     border-radius: 10px;
 }
+
+.boxContainer img {
+    height: 50px;
+    width: 50px;
+}

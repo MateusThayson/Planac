@@ -1,24 +1,21 @@
 import "./Menu.css";
+import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../App";
 
 export default function Menu(){
+
+    const {setAuth} = useContext(AuthContext);
+
     return(
-        <div class="menu">
-            <div class="imagem">
-                <img src="Tipografia Branca.png" alt=""></img>
+        <nav className="menu">
+            <div class="imagem"><img src="Tipografia Branca.png" alt=""></img></div>
+            <div className="tb">
+                <NavLink className="botao" to="/atividadesrealizadas">Atividades realizadas</NavLink>
+                <NavLink className="botao" to="/meuplanner">Meu planner</NavLink>
+                <NavLink className="botao" to="/planosemestral">Plano semestral</NavLink>
+                <div className="sair" onClick={()=>{setAuth({token:null, name:null})}}>Sair</div>
             </div>
-        
-            <div class="botoes"> 
-                <a href=""><button class="planner">Meu planner</button></a> 
-                <a href=""><button class="plano_semestral">Plano semestral</button></a>
-                <div class="dropdown">
-                    <button class="perfil">Meu Perfil</button>   
-                    <div class="conteudo-drop"></div>
-                </div>
-                <div class="sair">
-                    <button class="finalizar-button">Sair</button>
-                </div>  
-            </div>
-        
-        </div>
+        </nav>
     )
 }

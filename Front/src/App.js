@@ -1,29 +1,29 @@
 import './App.css';
-import { BrowserRouter, Route } from 'react-router-dom';
-import PaginaLogin from './Pages/PaginaLogin/PaginaLogin';
+import history from './history';
+import { Router, Route, Redirect } from 'react-router-dom';
+import { createContext, useState } from 'react';
+import { PaginaLogin } from './Pages/PaginaLogin/PaginaLogin';
 import AtividadesRealizadas from './Pages/AtividadesRealizadas/AtividadesRealizadas';
 import MeuProgressoGeral from './Pages/AtividadesRealizadas/MeuProgressoGeral';
 import MeuPlanner from './Pages/MeuPlanner/MeuPlanner';
 
+export const AuthContext = createContext(null);
+
 function App() {
+
+  const [auth, setAuth] = useState({token:null, nome:null});
+
   return (
-    <BrowserRouter>
-    <Route exact path="/" >
-      <div>oi</div>
-    </Route>
-    <Route exact path="/login">
-      <PaginaLogin></PaginaLogin>
-    </Route>
-    <Route exact path="/atividadesrealizadas">
-      <AtividadesRealizadas></AtividadesRealizadas>
-    </Route>
-    <Route exact path="/atividadesrealizadas/meuprogressogeral">
-      <MeuProgressoGeral></MeuProgressoGeral>
-    </Route>
-    <Route exact path="/meuplanner">
-      <MeuPlanner></MeuPlanner>
-    </Route>
-  </BrowserRouter>
+    <AuthContext.Provider value={{auth: auth, setAuth: setAuth}}>
+      <Router history={history}>
+          <Route path="/login" component={PaginaLogin}></Route>
+          <Route exact path="/atividadesrealizadas" component={AtividadesRealizadas}>
+            {/* {auth.token == null? <Redirect to="/login"></Redirect> : <AtividadesRealizadas></AtividadesRealizadas>} */}
+          </Route>
+          <Route exact path="/meuprogressogeral" component={MeuProgressoGeral}></Route>
+          <Route exact path="/meuplanner" component={MeuPlanner}></Route>
+      </Router>
+    </AuthContext.Provider>
   );
 }
 

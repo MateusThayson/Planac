@@ -7,6 +7,7 @@ module.exports.cadastrarAluno = function(req, res){
 
     let aluno = {
         nome: req.body.nome,
+        curso: req.body.curso,
         matricula: req.body.matricula,
         senha: bcrypt.hashSync(req.body.senha, 10),
     }
