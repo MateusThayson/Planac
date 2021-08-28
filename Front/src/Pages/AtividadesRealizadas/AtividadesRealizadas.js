@@ -41,7 +41,7 @@ function MeuProgressoPorCategoria(){
 
 export default function AtividadesRealizadas(){
     return(
-        <div>
+        <div className ="atividadesRealizadas">
             <Menu></Menu>
             <h1>Atividades Realizadas</h1>
             <div className="container">
