@@ -31,6 +31,7 @@ function AtividadesPlanejadas(){
     return(
         <div className="boxContainer">
             <h3>Atividades Planejadas X</h3>
+            <Calendario></Calendario>
             <CardAtividadePlanejada></CardAtividadePlanejada>
         </div>
     )
