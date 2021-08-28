@@ -44,7 +44,7 @@ export default function AtividadesRealizadas(){
         <div>
             <Menu></Menu>
             <h1>Atividades Realizadas</h1>
-            <div className="Container">
+            <div className="container">
                 <MeuProgressoGeral></MeuProgressoGeral>
                 <MeuProgressoPorCategoria></MeuProgressoPorCategoria>
             </div>
