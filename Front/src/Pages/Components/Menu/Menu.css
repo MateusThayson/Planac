@@ -7,7 +7,6 @@
     padding-left: 20px;
     padding-right: 20px;
 }
-
 .menu .tb{
     display: flex;
     right: auto;
@@ -22,7 +21,7 @@
     display: flex;
     color: white;
     margin-right: 10px;
-    height: 100%;
+    height: 70px;
     align-items: center;
     font-weight: bold;
     font-size: 20px;
@@ -31,17 +30,23 @@
 }
 
 .menu .tb .botao:hover, .botao:active{
-    background-color: rgb(116, 209, 255);
-    text-decoration: underline;
-}
+    background-color: #00A4F7FF;
+    text-decoration: nome;
+    height: 70px;
 
+}
 .menu .sair{
-    color:white;
-    cursor: pointer;
-    font-weight: bold;
+    display: flex;
+    color: white;
+    height: 70px;
     font-size: 20px;
+    text-decoration: none;
+    padding: 5px;
+    align-items: center;
+    font-weight: bold;
 }
-
 .menu .sair:hover{
-    text-decoration: underline;
+    background-color: #00A4F7FF;
+    text-decoration: nome;
+    height: 70px;
 }

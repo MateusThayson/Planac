@@ -1,12 +1,4 @@
-@font-face {
-    font-family: 'GilroyRegular';
-    src: url("../Components/Fonts/Gilroy-Regular.woff");
-}
-@font-face {
-    font-family: 'GilroyBold';
-    src: url("../Components/Fonts/Gilroy-Bold.woff");
-    font-weight: bold;
-}
+
 .container{
     display: flex;
     justify-content: center;
