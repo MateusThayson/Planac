@@ -16,6 +16,7 @@
     color: white;
     font-weight: bold;
     font-family: GilroyBold;
+    font-size: 28px;
 }
 
 .boxContainer .tituloBox{
@@ -28,32 +29,15 @@
     grid-row-start: 2;
     grid-row-end: 4;
     display: flex;
-    height: 20vh;
-    width: 20vh;
+    height: 25vh;
+    width: 25vh;
     justify-content: center;
     align-items: center;
     background-color: white;
     margin: auto;
     border-radius: 50%;
+
     background-image: linear-gradient(to right,yellow 0%, var(--planac-verde) 20%, var(--planac-azul) 100%);
-
-    shape-outside: polygon(
-  0 0,
-  100% 0,
-
-  55% 5%,
-  20% 20%,
-  5% 35%,
-
-  0 50%,
-
-  5% 65%,
-  20% 80%,
-  55% 95%,
-
-  100% 100%,
-  0 100%
-  );
 }
 
 
