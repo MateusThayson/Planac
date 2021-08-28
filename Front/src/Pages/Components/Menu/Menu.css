@@ -6,6 +6,7 @@
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
+    position: sticky;
 }
 .menu .tb{
     display: flex;
@@ -23,10 +24,10 @@
     margin-right: 10px;
     height: 70px;
     align-items: center;
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 14px;
     text-decoration: none;
     padding: 5px;
+    font-family: GilroyBold;
 }
 
 .menu .tb .botao:hover, .botao:active{
@@ -39,7 +40,7 @@
     display: flex;
     color: white;
     height: 70px;
-    font-size: 20px;
+    font-size: 14px;
     text-decoration: none;
     padding: 5px;
     align-items: center;

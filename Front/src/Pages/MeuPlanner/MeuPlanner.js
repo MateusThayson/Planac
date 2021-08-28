@@ -24,9 +24,9 @@ function CardAtividadePlanejada(){
             <div className="dia">seg 5</div>
             <p className="horarios">09:00/11:00</p> 
         </div>
-
     )
 }
+
 function AtividadesPlanejadas(){
     return(
         <div className="boxContainer">
@@ -35,9 +35,8 @@ function AtividadesPlanejadas(){
             <CardAtividadePlanejada></CardAtividadePlanejada>
         </div>
     )
-    
-
 }
+
 export default function MeuPlanner(){
     return(
         <div>

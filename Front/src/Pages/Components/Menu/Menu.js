@@ -9,7 +9,7 @@ export default function Menu(){
 
     return(
         <nav className="menu">
-            <div class="imagem"><img src="Tipografia Branca.png" alt=""></img></div>
+            <div class="imagem"><img src="../../../logo.svg" alt=""></img></div>
             <div className="tb">
                 <NavLink className="botao" to="/atividadesrealizadas">Atividades realizadas</NavLink>
                 <NavLink className="botao" to="/meuplanner">Meu planner</NavLink>
