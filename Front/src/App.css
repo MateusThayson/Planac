@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'GilroyRegular';
+  src: url("./Pages/Components/Fonts/Gilroy-Regular.woff");
+}
+@font-face {
+  font-family: 'GilroyBold';
+  src: url("./Pages/Components/Fonts/Gilroy-Bold.woff");
+  font-weight: bold;
+}
 
 :root {
   --planac-azul: #00A4F7FF;
