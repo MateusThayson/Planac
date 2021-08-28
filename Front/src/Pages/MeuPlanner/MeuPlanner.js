@@ -11,7 +11,7 @@ function Calendario(){
         const val = valor.toString();
         const info = val.split(" ");
         const data = {Mes: info[1], Dia: info[2]}
-        return data;
+        exibirAtividade(data);
     }
 
     return(
