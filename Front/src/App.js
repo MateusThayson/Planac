@@ -18,7 +18,7 @@ function App() {
       <Router history={history}>
           <Route path="/login" component={PaginaLogin}></Route>
           <Route exact path="/atividadesrealizadas" component={AtividadesRealizadas}>
-            {/* {auth.token == null? <Redirect to="/login"></Redirect> : <AtividadesRealizadas></AtividadesRealizadas>} */}
+            {/*auth.token == null? <Redirect to="/login"></Redirect> : <AtividadesRealizadas></AtividadesRealizadas>*/} 
           </Route>
           <Route exact path="/meuprogressogeral" component={MeuProgressoGeral}></Route>
           <Route exact path="/meuplanner" component={MeuPlanner}></Route>
