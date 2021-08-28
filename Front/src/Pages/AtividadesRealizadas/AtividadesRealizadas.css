@@ -1,42 +1,80 @@
-.boxContainer{
-    padding: 0;
+.Container {
     margin: 0;
+    padding: 0;
+}
+
+.boxContainer {
     background-color: white;
     text-align: center;
-    border-radius: 2rem;
-    margin: 3rem;
-    height: 30%;
+    border-radius: 8px;
     width: 40%;
-    display: grid;
-    grid-template-rows: 20% 50% 30%;
-
-}
-
-.boxContainer .tituloBox{
-    margin: 10px;
-    grid-row-start: 1;
-    grid-row-end: 2;
-}
-
-.graph{
-    grid-row-start: 2;
-    grid-row-end: 4;
+    height: 50vh;
+    padding: 2%;
+    margin: 5%;
     display: flex;
-    height:15vh;
-    width: 15vh;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.boxContainer .tituloBox {
+    font-size: 16px;
+    font-family: GilroyRegular;
+}
+
+.graph {
+    width: 100%;
+    display: flex;
+    flex: 1;
     justify-content: center;
-    align-items: center;
-    background-color: white;
-    margin: auto;
-    border-radius: 50%;
-    background-image: linear-gradient(to right,yellow 0%, var(--planac-verde) 20%, var(--planac-azul) 100%);
+    margin-bottom: 2%;
 }
 
-.boxContainer .horas{
-    grid-row-start: 4;
-    grid-row-end: 5;
+.entrar {
+    font-family: GilroyBold;
+    font-size: 16px;
+    background-color: var(--planac-azul);
+    color: white;
+    padding: 8px 12px 8px 12px;
+    border: none;
+    border-radius: 4px;
+    ;
+    text-decoration: none;
 }
 
-.boxAtividadeRealizada{
-    background-color: grey;
+.cardGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-height: 50vh;
+    overflow: auto;
+}
+
+.cardAtividade {
+    width: 40%;
+    border-radius: 4%;
+    text-align: center;
+    padding: 2%;
+    margin: 3%;
+}
+
+.cardAtividade .nomeCategoria {
+    font-size: 14px;
+    font-family: GilroyBold;
+}
+
+.romanoCategoria {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: black;
+    color: white;
+    font-family: GilroyBold;
+    text-align: center;
+}
+
+.cardAtividade .horaCategoria {
+    font-size: 14px;
+    font-family: GilroyRegular;
 }
