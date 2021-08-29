@@ -7,14 +7,14 @@ import AtividadesRealizadas from './Pages/AtividadesRealizadas/AtividadesRealiza
 import MeuProgressoGeral from './Pages/AtividadesRealizadas/MeuProgressoGeral';
 import MeuPlanner from './Pages/MeuPlanner/MeuPlanner';
 
-export const AuthContext = createContext(null);
+export const AppContext = createContext(null);
 
 function App() {
-
+  const [date, setDate] = useState({Mes: null, Dia: null, Ano: null});
   const [auth, setAuth] = useState({token:null, nome:null});
 
   return (
-    <AuthContext.Provider value={{auth: auth, setAuth: setAuth}}>
+    <AppContext.Provider value={{auth: auth, setAuth: setAuth, date: date, setDate: setDate}}>
       <Router history={history}>
           <Route path="/login" component={PaginaLogin}></Route>
           <Route exact path="/atividadesrealizadas" component={AtividadesRealizadas}>
@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/meuprogressogeral" component={MeuProgressoGeral}></Route>
           <Route exact path="/meuplanner" component={MeuPlanner}></Route>
       </Router>
-    </AuthContext.Provider>
+    </AppContext.Provider>
   );
 }
 

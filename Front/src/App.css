@@ -9,8 +9,16 @@
 }
 
 :root {
+
   --planac-azul: #00A4F7FF;
   --planac-verde: #00F190FF;
+  --planac-salmao: #f2606e;
+  --planac-verde-faded: #95da77;
+  --planac-amarelo: #ffdf7a;
+  --planac-laranja: #f7874c;
+  --planac-roxo: #c060a8;
+  --planac-azul-faded: #8ba2c0;
+  --planac-rosa: #ffdfc5;
 }
 
 *{
@@ -20,12 +28,18 @@
 
 body {
   background-color: var(--planac-azul);
+  font-family: GilroyRegular;
 }
 
 .container{
-  height: calc(100vh - 78px);
-  width: 100vw;
   display: flex;
   align-items: center;
 }
 
+h1{
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding-top: 3rem;
+  box-sizing: border-box;
+}

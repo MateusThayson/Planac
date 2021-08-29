@@ -1,6 +1,6 @@
 .boxContainer{
     display: flex;
-    justify-content: center;
+    align-items: center;
     background-color: white;
     margin: 30px;
     min-height: fit-content;
@@ -8,7 +8,9 @@
     border-radius: 5px;
     width: 30vw;
 }
-
+.boxContainer h3{
+    margin-bottom: 2rem;
+}
 .react-calendar{ 
     background-color: transparent;
     border: none;
@@ -50,4 +52,52 @@ abbr[title]{
 .react-calendar__tile--active{
     background: black;
     color: white;
+}
+
+.cardAtividadePlanejada{
+    display: flex;
+    align-items: center;
+    background-color: var(--planac-verde-faded);
+    border-radius: 5px;
+    margin: 4px;
+    width: 100%;
+    padding: 0.5rem;
+}
+.cardAtividadePlanejada .titulo{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+}
+.romanoCategoria{
+    margin-right: 1rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diaEHorario{
+    margin-left: auto;
+    margin-right: 10px;
+}
+.iconesContainer{
+    height: 58vh;
+    width: 40px;
+    position: relative;
+
+}
+.iconesContainer .container{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.icone{
+    height: 3rem;
+    width: 3rem;
+    margin-top: 10px;
+    background-color: black;
+    border-radius: 50%;
 }

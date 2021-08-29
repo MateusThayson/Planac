@@ -4,17 +4,17 @@ import history from "../../history";
 import { login } from "../../api/auth";
 import logo from "./LogoPrincipal.png";
 import React, { useContext, useState } from "react";
-import { AuthContext } from "../../App";
+import { AppContext } from "../../App";
 
 function FormularioLogin(){
-
+    
     const {register, handleSubmit} = useForm();
 
     const [matricula, setMatricula] = useState('');
     const [senha, setSenha] = useState('');
 
 
-    const auth = useContext(AuthContext);
+    const auth = useContext(AppContext);
 
     const logar = (loginDados) =>{
         login(loginDados).then((response)=>{

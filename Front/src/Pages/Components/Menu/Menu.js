@@ -1,11 +1,11 @@
 import "./Menu.css";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../../../App";
+import { AppContext } from "../../../App";
 
 export default function Menu(){
 
-    const {setAuth} = useContext(AuthContext);
+    const {setAuth} = useContext(AppContext);
 
     return(
         <nav className="menu">

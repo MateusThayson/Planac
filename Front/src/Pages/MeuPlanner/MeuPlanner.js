@@ -1,17 +1,17 @@
 import Menu from "../Components/Menu/Menu"
 import 'react-calendar/dist/Calendar.css'
 import Calendar from 'react-calendar';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./MeuPlanner.css"
+import { AppContext } from "../../App";
 
 function Calendario(){
-    const [value, onChange] = useState(new Date());
-
+    const app = useContext(AppContext)
+    console.log(app.date);
     const exibirData = (valor) => {
         const val = valor.toString();
         const info = val.split(" ");
-        const data = {Mes: info[1], Dia: info[2]}
-        // exibirAtividade(data);
+        app.setDate({Mes: info[1], Dia: info[2], Ano: info[3]})
     }
 
     return(
@@ -29,11 +29,19 @@ function Calendario(){
 
 function CardAtividadePlanejada(){
     return(
-        <div>
-            <div className="romanoCategoria">II</div>
-            <p className="tituloAtividade">Aula de pah</p>
-            <div className="dia">seg 5</div>
-            <p className="horarios">09:00/11:00</p> 
+        <div className="cardAtividadePlanejada">
+            <div className="categoria">
+                <span className="romanoCategoria"> II</span>
+            </div>
+            <div className="titulo">
+                <span className="tituloAtividade">Aula de pah</span><br/>
+                         
+            </div>
+            <div className="diaEHorario">
+                  <span className="dia">seg 5</span><br/> 
+                <span className="horario">09:00</span>    
+            </div>
+
         </div>
     )
 }
@@ -41,20 +49,36 @@ function CardAtividadePlanejada(){
 function AtividadesPlanejadas(){
     return(
         <div className="boxContainer">
-            <h3>Atividades Planejadas em </h3>
+            <h3 className="titulo">Atividades Planejadas</h3>
+            <CardAtividadePlanejada></CardAtividadePlanejada>
             <CardAtividadePlanejada></CardAtividadePlanejada>
         </div>
     )
 }
 
+function Icones(){
+    return(
+        <div className="iconesContainer">
+            <div className="container">
+                <div className="icone"></div>
+                <div className="icone"></div>          
+            </div>
+        </div>
+    )
+}
 export default function MeuPlanner(){
+    const app = useContext(AppContext);
+    let dia = " em " + app.date.Dia;
+    let ano = " de " + app.date.Ano;
+    console.log(app);
     return(
         <div>
             <Menu></Menu>
             <h1>Meu Planner</h1>
             <div className="container">
                 <Calendario></Calendario>
-                <AtividadesPlanejadas></AtividadesPlanejadas>
+                <AtividadesPlanejadas Dia={dia} Mes={ano}></AtividadesPlanejadas>
+                <Icones></Icones>
             </div>
         </div>
     )
