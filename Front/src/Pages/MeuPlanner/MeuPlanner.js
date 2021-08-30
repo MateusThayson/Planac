@@ -22,10 +22,6 @@ function Calendario(){
             />
         </div>
     )
-<<<<<<< HEAD
-
-=======
->>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
 }
 
 function CardAtividadePlanejada(){
@@ -115,62 +111,19 @@ function PlanejarAtividade(){
                 <div className="tipoTexto"> lorum lorum lorum lorum</div>
                 <div className="tipoTexto"> lorum lorum lorum lorum</div>
             </div>
-<<<<<<< HEAD
-=======
-            <div className="detalhes">
-                <div className="cargaHoraria">
-                        <div className="limites">
-                            <h5>Limites:</h5>
-                            <span>20H/semestre</span><br />
-                            <span> 40H/neste item</span>
-                        </div>
-                        <div className="horasComplementares">
-                            <h5>Horas Complementares:</h5>
-                            1HC/1HR
-                        </div>
-                </div>
-                    <div className="observaçao">
-                        <h5>Obeservação:</h5>
-                        <span> lorum lorum lorum</span>
-                    </div>
-                    <div className="comprovante">
-                        <div>imagem</div>
-                        <div className="observacaoComprovante">
-                            <h5>Comprovante:</h5>
-                            <span>lorum lorum lorum</span>
-                        </div>
-                    </div>
-                    <div className="footer">
-                        <div className="marcarComprovado"> Já tenho comprovante</div>
-                        <div className="adicionarComprovante">Adicionar foto do comprovante</div>
-                    </div>
-            </div>
->>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
         </div>
         
     )
 }
-<<<<<<< HEAD
 export default function MeuPlanner(){
 
     return(
         <div>
-=======
-
-export default function MeuPlanner(){
-
-    return(
-        <div className="meuPlanner">
->>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
             <Menu></Menu>
             <h1>Meu Planner</h1>
             <div className="container">
                 <Calendario></Calendario>
-<<<<<<< HEAD
                 <PlanejarAtividade></PlanejarAtividade>
-=======
-                <AtividadesPlanejadas></AtividadesPlanejadas>
->>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
                 <Icones></Icones>
             </div>
         </div>

@@ -15,10 +15,6 @@
     "react-hook-form": "^7.13.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-<<<<<<< HEAD
-=======
-    "react-svg-donuts": "^2.0.1",
->>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
     "web-vitals": "^1.1.2"
   },
   "scripts": {
