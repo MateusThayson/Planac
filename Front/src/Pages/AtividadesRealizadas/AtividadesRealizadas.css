@@ -33,10 +33,18 @@
     display: flex;
     flex: 1;
     justify-content: center;
+<<<<<<< HEAD
     margin-bottom: 2%;
 }
 
 .entrar {
+=======
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.botao {
+>>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
     font-family: GilroyBold;
     font-size: 16px;
     background-color: var(--planac-azul);
@@ -44,7 +52,10 @@
     padding: 8px 12px 8px 12px;
     border: none;
     border-radius: 4px;
+<<<<<<< HEAD
     ;
+=======
+>>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
     text-decoration: none;
 }
 
@@ -53,18 +64,31 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+<<<<<<< HEAD
 
+=======
+    height: 100%;
+    max-height: 50vh;
+>>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
     overflow: auto;
     width: 100%;
 }
 
 .cardAtividade {
     width: 40%;
+<<<<<<< HEAD
     height: 25vh;
     border-radius: 4%;
     text-align: center;
     padding: 2%;
     margin: 3%; 
+=======
+    height: 65%;
+    border-radius: 4%;
+    text-align: center;
+    padding: 2%;
+    margin: 3%;
+>>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
 }
 
 .cardAtividade .nomeCategoria {
@@ -74,20 +98,45 @@
 
 .romanoCategoria {
     display: inline-block;
+<<<<<<< HEAD
     width: 25px;
     height: 25px;
+=======
+    width: 1.5rem;
+    height: 1.5rem;
+>>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
     border-radius: 100%;
     background-color: black;
     color: white;
     font-family: GilroyBold;
     text-align: center;
+<<<<<<< HEAD
+=======
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+>>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
 }
 
 .cardAtividade .horaCategoria {
     font-size: 14px;
     font-family: GilroyRegular;
 }
+<<<<<<< HEAD
 
 .boxAtividadeRealizada{
     background-color: grey;
+=======
+.cardAtividade{
+    font-size: 0.5rem;
+}
+.boxAtividadeRealizada{
+    background-color: grey;
+}
+
+.horasInfo{
+    text-align: left;
+}
+.horasInfo h3{
+    margin-bottom:0.5rem;
+>>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
 }

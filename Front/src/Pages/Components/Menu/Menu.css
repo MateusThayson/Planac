@@ -18,7 +18,11 @@
     margin-left: 20px;
     height: 30px;
 }
+<<<<<<< HEAD
 .menu .tb .botao{
+=======
+.menu .tb .botaoMenu{
+>>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
     display: flex;
     color: white;
     margin-right: 10px;
@@ -30,7 +34,11 @@
     font-family: GilroyBold;
 }
 
+<<<<<<< HEAD
 .menu .tb .botao:hover, .botao:active{
+=======
+.menu .tb .botaoMenu:hover, .botao:active{
+>>>>>>> 5024f1f82b7f7f40410bea0c9e9781fd366aba3f
     background-color: #00A4F7FF;
     text-decoration: nome;
 
