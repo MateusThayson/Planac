@@ -46,7 +46,7 @@
     border: transparent;
 }
 
-.boxLogin .entrar{
+.boxLogin .botao{
     font-family: GilroyBold;
     font-size: 16px;
     background-color: var(--planac-azul);

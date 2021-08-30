@@ -18,7 +18,7 @@
     margin-left: 20px;
     height: 30px;
 }
-.menu .tb .botao{
+.menu .tb .botaoMenu{
     display: flex;
     color: white;
     margin-right: 10px;
@@ -30,7 +30,7 @@
     font-family: GilroyBold;
 }
 
-.menu .tb .botao:hover, .botao:active{
+.menu .tb .botaoMenu:hover, .botao:active{
     background-color: #00A4F7FF;
     text-decoration: nome;
 

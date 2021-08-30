@@ -39,7 +39,7 @@ function FormularioLogin(){
             <h3>Senha:</h3>
             <input className="input" placeholder="********" type="password" name="senha" {...register('senha', { required: true})} onChange={e => setSenha(e.target.value)}/>
             <br/>
-            <button className="entrar">Entrar</button>
+            <button className="botao">Entrar</button>
             <br/>
 
             <a href="atividadesrealizadas" class="helpText"> Não sabe qual sua matrícula? </a>

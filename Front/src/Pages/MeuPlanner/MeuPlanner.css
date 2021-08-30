@@ -1,5 +1,5 @@
 
-.boxContainer{
+.meuPlanner .boxContainer{
     display: flex;
     align-items: center;
     background-color: white;
@@ -8,9 +8,9 @@
     padding: 20px;
     border-radius: 5px;
     width: 30vw;
-    overflow: hidden;
+    overflow-x: hidden;
 }
-.boxContainer h3{
+.meuPlanner .boxContainer h3{
     margin-bottom: 2rem;
 }
 .react-calendar{ 
@@ -71,7 +71,7 @@ abbr[title]{
     justify-content: left;
 
 }
-.romanoCategoria{
+.categoria .romanoCategoria{
     margin-right: 1rem;
     display:flex;
     align-items: center;
@@ -190,7 +190,7 @@ abbr[title]{
 .tipoTexto{
     margin-top: 15px;
     border-radius: 5px;
-    height: 50px;
+    min-height: 50px;
     background-color: white;
     width: 100%;
     height: fit-content;
@@ -198,5 +198,29 @@ abbr[title]{
 
 .planejarAtividade{
     overflow-y: scroll;
-    overflow-x: hidden;
+   
+}
+
+.detalhes{
+    text-align: left;
+}
+.detalhes h5{
+    font-size: 0.8rem;
+}
+.detalhes .cargaHoraria{
+    margin-top: 15px;
+    display: flex;
+    text-align: left;
+}
+.cargaHoraria .limites{
+    margin-right: 30px;
+}
+
+.detalhes .observaçao{
+    margin-top: 15px;
+}
+
+.detalhes .comprovante{
+    margin-top: 15px;
+    display: flex;
 }

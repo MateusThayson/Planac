@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+/*import React, { Component } from 'react'
 import { Chart } from "react-google-charts";
 
 export class Grafico extends Component {
@@ -39,3 +39,14 @@ export class Grafico extends Component {
 }
 
 export default Grafico
+*/
+
+export default function Grafico() {
+    return(
+        <div className="horasInfo">
+            <h3>Horas cadastradas: 110</h3>
+            <h3>Horas restantes: 86</h3>
+            <h3> Limite: 196</h3>
+        </div>
+    )
+}

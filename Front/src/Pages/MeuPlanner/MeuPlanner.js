@@ -111,19 +111,48 @@ function PlanejarAtividade(){
                 <div className="tipoTexto"> lorum lorum lorum lorum</div>
                 <div className="tipoTexto"> lorum lorum lorum lorum</div>
             </div>
+            <div className="detalhes">
+                <div className="cargaHoraria">
+                        <div className="limites">
+                            <h5>Limites:</h5>
+                            <span>20H/semestre</span><br />
+                            <span> 40H/neste item</span>
+                        </div>
+                        <div className="horasComplementares">
+                            <h5>Horas Complementares:</h5>
+                            1HC/1HR
+                        </div>
+                </div>
+                    <div className="observaçao">
+                        <h5>Obeservação:</h5>
+                        <span> lorum lorum lorum</span>
+                    </div>
+                    <div className="comprovante">
+                        <div>imagem</div>
+                        <div className="observacaoComprovante">
+                            <h5>Comprovante:</h5>
+                            <span>lorum lorum lorum</span>
+                        </div>
+                    </div>
+                    <div className="footer">
+                        <div className="marcarComprovado"> Já tenho comprovante</div>
+                        <div className="adicionarComprovante">Adicionar foto do comprovante</div>
+                    </div>
+            </div>
         </div>
         
     )
 }
+
 export default function MeuPlanner(){
 
     return(
-        <div>
+        <div className="meuPlanner">
             <Menu></Menu>
             <h1>Meu Planner</h1>
             <div className="container">
                 <Calendario></Calendario>
-                <PlanejarAtividade></PlanejarAtividade>
+                <AtividadesPlanejadas></AtividadesPlanejadas>
                 <Icones></Icones>
             </div>
         </div>
