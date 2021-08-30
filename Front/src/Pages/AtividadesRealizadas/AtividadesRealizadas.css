@@ -53,20 +53,22 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    max-height: 50vh;
+
     overflow: auto;
+    width: 100%;
 }
 
 .cardAtividade {
     width: 40%;
+    height: 25vh;
     border-radius: 4%;
     text-align: center;
     padding: 2%;
-    margin: 3%;
+    margin: 3%; 
 }
 
 .cardAtividade .nomeCategoria {
-    font-size: 14px;
+    font-size: 0.8rem;
     font-family: GilroyBold;
 }
 

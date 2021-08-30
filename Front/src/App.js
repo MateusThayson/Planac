@@ -6,6 +6,7 @@ import { PaginaLogin } from './Pages/PaginaLogin/PaginaLogin';
 import AtividadesRealizadas from './Pages/AtividadesRealizadas/AtividadesRealizadas';
 import MeuProgressoGeral from './Pages/AtividadesRealizadas/MeuProgressoGeral';
 import MeuPlanner from './Pages/MeuPlanner/MeuPlanner';
+import PlanoSemestral from './Pages/PlanoSemestral/PlanoSemestral';
 
 export const AppContext = createContext(null);
 
@@ -22,6 +23,7 @@ function App() {
           </Route>
           <Route exact path="/meuprogressogeral" component={MeuProgressoGeral}></Route>
           <Route exact path="/meuplanner" component={MeuPlanner}></Route>
+          <Route exact path="/planosemestral" component={PlanoSemestral}></Route>
       </Router>
     </AppContext.Provider>
   );
