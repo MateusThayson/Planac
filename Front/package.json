@@ -19,6 +19,9 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "cypress": "cypress run",
+    "cypress:chrome": "cypress run -b chrome",
+    "cypress:open": "cypress open",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^8.3.1"
   }
 }

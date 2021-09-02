@@ -17,6 +17,7 @@ function App() {
   return (
     <AppContext.Provider value={{auth: auth, setAuth: setAuth, date: date, setDate: setDate}}>
       <Router history={history}>
+      <Route path="/" component={AtividadesRealizadas}></Route>
           <Route path="/login" component={PaginaLogin}></Route>
           <Route exact path="/atividadesrealizadas" component={AtividadesRealizadas}>
             {/*auth.token == null? <Redirect to="/login"></Redirect> : <AtividadesRealizadas></AtividadesRealizadas>*/} 
